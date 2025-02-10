@@ -5,7 +5,7 @@ https://htmlbook.ru/samhtml
 https://htmlbook.ru/samhtml/tekst/spetssimvoly	!!!
 
 TODO:
-
+1. Сверстать список: https://github.com/okovtun/PD_311_WEB/blob/master/Disciplines.rar
 -----------------------------
 1. Применить кастомные шрифты, например Google-fonts;
 //2. Оформить статью на произвольную тему:
