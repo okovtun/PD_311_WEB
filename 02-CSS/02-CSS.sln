@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.34930.48
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABC89427-EAE7-4B8F-B5F4-642DFEB9664E}"
 	ProjectSection(SolutionItems) = preProject
+		animations.css = animations.css
+		animations.html = animations.html
 		index.html = index.html
 		style.css = style.css
 	EndProjectSection

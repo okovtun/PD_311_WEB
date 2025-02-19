@@ -11,6 +11,9 @@ https://www.w3schools.com/cssref/css3_pr_text-shadow.php
 https://www.w3schools.com/cssref/css3_pr_box-shadow.php
 
 TODO:
+При наведении на элемент в теблице Менделеева должны подсвечиваться все элементы данной группы;
+
+DONE:
 1. Сверстать таблицу Менделеева;
 
 DONE:

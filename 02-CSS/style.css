@@ -63,7 +63,13 @@ table
 	{
 		box-shadow: -5px 5px 25px 25px grey;
 	}
-
+	table > caption
+	{
+		/*text-gradient(cornflowerblue, aliceblue);*/
+		background-image: linear-gradient(cornflowerblue, aliceblue);
+		color: transparent;
+		background-clip: text;
+	}
 tr
 {
 	border: solid,1px;
@@ -122,3 +128,59 @@ td
 	margin-left: 50px;
 	font-weight: 100;
 }
+
+/*descriptor
+{
+	style1:....;
+	style2:....;
+	...........;
+	styleN:....;
+}
+.class
+{
+	style1:....;
+	style2:....;
+	...........;
+	styleN:....;
+}
+#id
+{
+	style1:....;
+	style2:....;
+	...........;
+	styleN:....;
+}*/
+
+/*1) Один набор стилей для нескольких элементов.
+element1, element2, .... elementN
+{
+	styles....
+}
+*/
+/*2)Вложенность
+	element1 > element2
+	{
+		Этот набор стилей применяется к 'element2' только тогда, когда он вложен в 'element1' 
+	}
+*/
+div > table
+{
+	background-color:darkblue;
+}
+/*3) Первый следующий элемент
+	element1 + element2
+{
+	Этот набор стилей будет применен к 'element2' только в том случае, если он непосредственно следует за 'element1' на одном уровне.
+}
+*/
+h1 ~ h3,h4
+{
+	background-color:Highlight;
+}
+
+/*4) 
+element1 ~ element2
+{
+	Этот набор стилей применяется ко всем 'element2', следующим на одном уровне за 'element1'
+}
+*/
