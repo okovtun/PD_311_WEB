@@ -19,7 +19,7 @@ p
 
 .image
 {
-	border: solid, 1px;
+	border: solid 1px;
 	text-align: center;
 }
 
@@ -72,7 +72,7 @@ table
 	}
 tr
 {
-	border: solid,1px;
+	border: solid 1px;
 }
 
 	tr:hover
@@ -83,7 +83,7 @@ tr
 
 th
 {
-	border: solid,1px;
+	border: solid 1px;
 	padding-left: 25px;
 	padding-right: 25px;
 }
@@ -91,7 +91,7 @@ th
 td
 {
 	text-align: center;
-	border: solid,1px;
+	border: solid 1px;
 }
 
 	td:hover
@@ -184,3 +184,19 @@ element1 ~ element2
 	Этот набор стилей применяется ко всем 'element2', следующим на одном уровне за 'element1'
 }
 */
+
+html:has(.year:hover) .year
+{
+	/*border-left: solid 10px;
+	border-right: solid 10px;*/
+	background-color:lightyellow;
+}
+html:has(.x86-64:hover) .x86-64
+{
+	background-color:lightgreen;
+	font-weight:800;
+}
+.x86-64:hover
+{
+	box-shadow: inset -3px -3px 3px 3px darkgrey;
+}
