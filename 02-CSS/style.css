@@ -184,3 +184,13 @@ element1 ~ element2
 	Этот набор стилей применяется ко всем 'element2', следующим на одном уровне за 'element1'
 }
 */
+
+html:has(.year:hover) .year
+{
+	background-color:limegreen;
+}
+html:has(.x86-64:hover) .x86-64
+{
+	font-weight:800;
+	background-color:orange;
+}
