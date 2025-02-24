@@ -7,114 +7,287 @@
     <title>Forms</title>
 </head>
 <body>
-	<h1>Forms</h1>
-	<form action="handler.php" method="post">
-		<div>
-			<label for="first_name">Name:</label>
-			<input type="text" placeholder="Введите Ваше имя" name="first_name" id="first_name" required
-				   size="25"
-				   minlength="3" maxlength="8"
-				   pattern="^[A-Z][a-z]*">
-		</div>
+	<main>
+		<h1>Forms</h1>
+		<form action="handler.php" method="post">
+			<div>
+				<label for="first_name">Name:</label>
+				<input type="text" placeholder="Введите Ваше имя" name="first_name" id="first_name" required
+					   size="25"
+					   minlength="3" maxlength="8"
+					   pattern="^[A-Z][a-z]*">
+			</div>
 
-		<div>
-			<label for="passwd">Password:</label>
-			<input type="password" placeholder="Введите пароль" name="passwd" id="passwd"
-				   size="25"
-				   minlength="8" maxlength="24"
-				   >
-		</div>
+			<div>
+				<label for="passwd">Password:</label>
+				<input type="password" placeholder="Введите пароль" name="passwd" id="passwd"
+					   size="25"
+					   minlength="8" maxlength="24">
+			</div>
 
-		<div>
-			<label for="email">E-mail:</label>
-			<input type="email" placeholder="Введите Вашу почку" name="email" id="email"
-				   size="25"
-				   minlength="5" maxlength="24"
-				   >
-		</div>
-		<div>
-			<label for="phone">Phone:</label>
-			<input type="tel" placeholder="Введите Ваш телефон" name="phone" id="phone"
-				   size="25"
-				   minlength="5" maxlength="24"
-				   >
-		</div>
-		<div>
-			<label for="birth-date">Ваша дата рождения:</label>
-			<input type="date">
-		</div>
-		<div>
-			<label for="brief">Пару слов о себе:</label><br>
-			<textarea name="brief" id="brief" placeholder=""></textarea>
-		</div>
-		<div>
-			<img src="img/photo.jpg" width="150" height="200"><br>
-			<label for="photo">Выберите фоточку</label>
-			<input type="file" accept="image/*">
-		</div>
-		<div>
-			<label for="color">Выберите Ваш любимый цвет</label>
-			<input type="color">
-		</div>
-		
-		<fieldset>
-			<legend>Какие языкт Вы знаете?</legend>
-			<div><input type="checkbox" id="Russian">	<label for="Russian">Русский</label></div>
-			<div><input type="checkbox" id="English">	<label for="English">English</label></div>
-			<div><input type="checkbox" id="Deutsche">	<label for="Deutsche">Deutsche</label></div>
-			<div><input type="checkbox" id="Italiano">	<label for="Italiano">Italiano</label></div>
-			<div><input type="checkbox" id="Espanol">	<label for="Espanol">Espanol</label></div>
-			<div><input type="checkbox" id="Chinese">	<label for="Chinese">Chinese</label></div>
-		</fieldset>
-		<fieldset>
-			<legend>Выберите форму обучения</legend>
-			<input type="radio" name="learning-form" id="stacionar"><label for="stacionar">Стационар</label>	 <br>
-			<input type="radio" name="learning-form" id="semistacionar"><label for="semistacionar">Получтационар </label><br>
-			<input type="radio" name="learning-form" id="year-courses"><label for="year-courses">Годичные курсы</label><br>
-			<a href="https://learn.microsoft.com/en-us/windows/win32/uxguide/ctrl-radio-buttons">Is it better choise</a>
-		</fieldset>
+			<div>
+				<label for="email">E-mail:</label>
+				<input type="email" placeholder="Введите Вашу почку" name="email" id="email"
+					   size="25"
+					   minlength="5" maxlength="24">
+			</div>
+			<div>
+				<label for="phone">Phone:</label>
+				<input type="tel" placeholder="Введите Ваш телефон" name="phone" id="phone"
+					   size="25"
+					   minlength="5" maxlength="24">
+			</div>
+			<div>
+				<label for="birth-date">Ваша дата рождения:</label>
+				<input type="date">
+			</div>
+			<div>
+				<label for="brief">Пару слов о себе:</label><br>
+				<textarea name="brief" id="brief" placeholder=""></textarea>
+			</div>
+			<div>
+				<img src="img/photo.jpg" width="150" height="200"><br>
+				<label for="photo">Выберите фоточку</label>
+				<input type="file" accept="image/*">
+			</div>
+			<div>
+				<label for="color">Выберите Ваш любимый цвет</label>
+				<input type="color">
+			</div>
 
-		<div>
-			<label for="direction">Выберите направление обучения:</label><br>
-			<select name="direction" id="direction">
-				<option disabled selected> --- Выберите специальность --- </option>
-				<option value="RPO">РПО</option>
-				<option value="Networks">Сети</option>
-				<option value="Graphics">Графика</option>
-				<option value="Java">Java</option>
-				<option value="Android">Android</option>
-				<option value="GameDev">GameDev</option>
-				<option value="WebDev">WebDev</option>
-				<option value="FrontEnd">FrontEnd</option>
-				<option value="BackEnd">BackEnd</option>
-			</select>
-		</div>
-		<div>
-			<label for="weekdays">Выберите дни недели:</label><br>
-			<select multiple name="weekdays" id="weekdays">
-				<option disabled selected>Выберите дни недели</option>
-				<option value="Monday">Понедельник</option>
-				<option value="Tuesday">Вторник</option>
-				<option value="Wednesday">Среда</option>
-				<option value="Thursday">Четверг</option>
-				<option value="Friday">Пятница</option>
-				<option value="Saturnday">Суббота</option>
-				<option value="Sunday">Воскресенье</option>
-			</select>
-		</div>
-		<div>
-			<label for="learning-time">Выберите время обучения</label>
-			<input type="time">
-		</div>
-		<div>
-			<label for="meeting">Выберите удобное для Вас время встречи:</label><br>
-			<input type="datetime-local" name="meeting" id="meeting">
-		</div>
-		<input type="week">
-		<input type="number" min="1" max="5">
-		<input type="range">
-		<input type="reset">
-		<input type="submit">
-	</form>
+			<fieldset>
+				<legend>Какие языкт Вы знаете?</legend>
+				<div><input type="checkbox" id="Russian">	<label for="Russian">Русский</label></div>
+				<div><input type="checkbox" id="English">	<label for="English">English</label></div>
+				<div><input type="checkbox" id="Deutsche">	<label for="Deutsche">Deutsche</label></div>
+				<div><input type="checkbox" id="Italiano">	<label for="Italiano">Italiano</label></div>
+				<div><input type="checkbox" id="Espanol">	<label for="Espanol">Espanol</label></div>
+				<div><input type="checkbox" id="Chinese">	<label for="Chinese">Chinese</label></div>
+			</fieldset>
+			<fieldset>
+				<legend>Выберите форму обучения</legend>
+				<input type="radio" name="learning-form" id="stacionar"><label for="stacionar">Стационар</label>	 <br>
+				<input type="radio" name="learning-form" id="semistacionar"><label for="semistacionar">Получтационар </label><br>
+				<input type="radio" name="learning-form" id="year-courses"><label for="year-courses">Годичные курсы</label><br>
+				<a href="https://learn.microsoft.com/en-us/windows/win32/uxguide/ctrl-radio-buttons">Is it better choise</a>
+			</fieldset>
+
+			<div>
+				<label for="direction">Выберите направление обучения:</label><br>
+				<select name="direction" id="direction">
+					<option disabled selected> --- Выберите специальность --- </option>
+					<option value="RPO">РПО</option>
+					<option value="Networks">Сети</option>
+					<option value="Graphics">Графика</option>
+					<option value="Java">Java</option>
+					<option value="Android">Android</option>
+					<option value="GameDev">GameDev</option>
+					<option value="WebDev">WebDev</option>
+					<option value="FrontEnd">FrontEnd</option>
+					<option value="BackEnd">BackEnd</option>
+				</select>
+			</div>
+			<div>
+				<label for="weekdays">Выберите дни недели:</label><br>
+				<select multiple name="weekdays" id="weekdays">
+					<option disabled selected>Выберите дни недели</option>
+					<option value="Monday">Понедельник</option>
+					<option value="Tuesday">Вторник</option>
+					<option value="Wednesday">Среда</option>
+					<option value="Thursday">Четверг</option>
+					<option value="Friday">Пятница</option>
+					<option value="Saturnday">Суббота</option>
+					<option value="Sunday">Воскресенье</option>
+				</select>
+			</div>
+			<div>
+				<label for="learning-time">Выберите время обучения</label>
+				<input type="time">
+			</div>
+			<div>
+				<label for="meeting">Выберите удобное для Вас время встречи:</label><br>
+				<input type="datetime-local" name="meeting" id="meeting">
+			</div>
+			<input type="week">
+			<input type="number" min="1" max="5">
+			<input type="range">
+			<div class="eula">
+				<h1>
+					EULA - End-User License Agreeament
+					Microsoft Windows XP Professional
+					ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ
+					ВАЖНО - ПРОЧТИТЕ ВНИМАТЕЛЬНО!
+				</h1>
+				<p>
+					Настоящее лицензионное соглашение (далее
+					"лицензионное соглашение") является юридическим
+					соглашением, заключаемым между вами (физическим
+					или юридическим лицом) и Microsoft Corporation
+					(далее "корпорация Майкрософт") относительно
+					указанного выше программного продукта корпорации
+					Майкрософт, который включает в себя программное
+					обеспечение, а также может включать
+					соответствующие носители, любые печатные
+					материалы, любую "встроенную" или "электронную"
+					документацию и службы в Интернете (далее
+					"продукт"). Продукт может сопровождаться
+					документами, дополняющими или изменяющими
+					настоящее лицензионное соглашение.
+					УСТАНАВЛИВАЯ, КОПИРУЯ ИЛИ ИНЫМ ОБРАЗОМ
+					ИСПОЛЬЗУЯ ПРОДУКТ, ВЫ ТЕМ САМЫМ СОГЛАШАЕТЕСЬ
+					С ПОЛОЖЕНИЯМИ И УСЛОВИЯМИ НАСТОЯЩЕГО
+					ЛИЦЕНЗИОННОГО СОГЛАШЕНИЯ. ЕСЛИ ВЫ НЕ
+					СОГЛАСНЫ С ПОЛОЖЕНИЯМИ И УСЛОВИЯМИ
+					НАСТОЯЩЕГО ЛИЦЕНЗИОННОГО СОГЛАШЕНИЯ, НЕ
+					УСТАНАВЛИВАЙТЕ И НЕ ИСПОЛЬЗУЙТЕ ДАННЫЙ
+					ПРОДУКТ; ВЫ МОЖЕТЕ ВЕРНУТЬ ЕГО ЛИЦУ, У
+					КОТОРОГО ВЫ ПРИОБРЕЛИ ПРОДУКТ, И ПОЛУЧИТЬ
+					ОБРАТНО УПЛАЧЕННЫЕ ВАМИ ДЕНЬГИ.
+				</p>
+				<ol>
+					<li>
+						1. ОБЪЕМ ЛИЦЕНЗИИ.
+						Корпорация Майкрософт предоставляет вам следующие
+						права при условии соблюдения вами всех положений и
+						условий настоящего лицензионного соглашения:
+						* Установка и использование.
+						Разрешается устанавливать, использовать,
+						осуществлять доступ, отображать и запускать одну
+						копию продукта на одном компьютере, в качестве
+						которого может выступать рабочая станция, терминал
+						или любое другое устройство (далее "рабочая
+						станция"). Продукт нельзя использовать
+						одновременно более чем 2 (двумя) процессорами
+						одной рабочей станции. К рабочей станции
+						разрешается подключать не более 10 (десяти)
+						компьютеров или других электронных устройств
+						(далее "устройство") для использования служб
+						данного продукта, причем исключительно для доступа
+						к файловым службам, службам печати, службам IIS, а
+						также к службам удаленного доступа (включая общий
+						доступ к подключению и телефонные службы).
+						Максимальное количество подключений, равное
+						десяти, включает любые косвенные подключения,
+						производимые через "мультиплексирующее" или иное
+						программное или аппаратное обеспечение,
+						позволяющее осуществлять коллективный доступ или
+						поочередные подключения. Если иное явно не
+						07/27/2001 54834.1
+						оговорено ниже в разделе о программе NetMeeting,
+						удаленном помощнике и удаленном рабочем столе,
+						запрещается предоставлять с помощью продукта
+						другому устройству возможность использовать,
+						осуществлять доступ, запускать или отображать
+						другие программы, находящиеся на рабочей станции,
+						а также использовать, осуществлять доступ,
+						запускать или отображать продукт или
+						пользовательский интерфейс продукта на каком-либо
+						устройстве, если только для этого устройства не
+						приобретена дополнительная лицензия на продукт.
+						* Обязательная активизация.
+						Действие лицензионных прав, предоставленных
+						настоящим лицензионным соглашением, ограничено
+						первыми 30 (тридцатью) днями с момента первой
+						установки продукта, если вы не предоставите
+						сведения, необходимые для активизации вашей
+						лицензионной копии продукта согласно описанию во
+						время установки продукта. Активизация продукта
+						может быть выполнена через Интернет или по
+						телефону (телефонные переговоры оплачиваются
+						вами). В случае изменения аппаратного обеспечения
+						компьютера или продукта может потребоваться
+						повторная активизация продукта. В продукт встроены
+						технические средства, предотвращающие незаконное
+						или нелицензионное использование продукта. Вы
+						соглашаетесь с тем, что такие средства могут
+						использоваться нами.
+						* Хранение и использование в сети.
+						Вы вправе также хранить или установить копию
+						продукта на устройстве хранения данных (например,
+						на сервере сети), используемом исключительно для
+						установки и запуска продукта на других ваших
+						рабочих станциях в пределах локальной сети, при
+						условии приобретения и выделения отдельной
+						лицензии на каждую рабочую станцию, на которой или
+						с которой продукт устанавливается, используется,
+						предоставляется для доступа, отображается или
+						запускается. Лицензия на продукт неделима и не
+						допускает одновременного ее использования на
+						нескольких рабочих станциях.
+						* Сохранение прав.
+						Все права, которые не предоставлены явно настоящим
+						лицензионным соглашением, сохраняются за
+						корпорацией Майкрософт.
+					</li>
+					<li>
+						2. ОБНОВЛЕНИЯ.
+						Если программный продукт является обновлением, для
+						его использования вам необходимо иметь
+						соответствующую лицензию на продукт, указанный
+						корпорацией Майкрософт как подпадающий под
+						предложение об обновлении После обновления
+						07/27/2001 54834.1
+						запрещается использовать продукт, являющийся
+						основанием вашего права на обновление.
+					</li>
+					<li>
+						3. ДОПОЛНИТЕЛЬНОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ И
+						СЛУЖБЫ.
+						Настоящее лицензионное соглашение распространяется
+						также на предназначенные для продукта обновления,
+						добавления, дополнительные компоненты и компоненты
+						служб в Интернете, которые могут быть доступны или
+						предоставлены вам корпорацией Майкрософт после
+						приобретения вами исходной копии продукта, если
+						такое обновление, добавление, дополнительный
+						компонент или компонент служб в Интернете не
+						сопровождается иными условиями, установленными
+						корпорацией Майкрософт. Корпорация Майкрософт
+						оставляет за собой право прекратить работу любой
+						службы в Интернете, предоставленной или доступной
+						вам посредством использования продукта. Настоящее
+						лицензионное соглашение не предоставляет вам
+						никаких прав на использование включенных в продукт
+						компонентов пакета средств разработки Windows
+						Media Format Software Development Kit (далее
+						"WMFSDK") для разработки приложений, использующих
+						технологию Windows Media. Для использования
+						средств WMFSDK с целью разработки таких приложений
+						необходимо посетить веб-страницу
+						http://msdn.microsoft.com/workshop/imedia/
+						windowsmedia/sdk/wmsdk.asp, принять условия
+						отдельного лицензионного соглашения на
+						использование пакета WMFSDK, загрузить
+						соответствующий пакет WMFSDK и установить его на
+						своем компьютере.
+					</li>
+					<li>
+						4. ПЕРЕДАЧА - внутренняя.
+						Продукт разрешается переносить на другую рабочую
+						станцию. После переноса продукта на другую рабочую
+						станцию его следует полностью удалить с исходной
+						рабочей станции. Передача третьим лицам.
+						Первоначальный пользователь продукта имеет право
+						единовременной передачи его другому лицу. Такая
+						передача должна включать все составные части,
+						носители и печатные материалы, настоящее
+						лицензионное соглашение и сертификат подлинности,
+						если таковой имеется. Такая передача не может
+						являться косвенной, например, в виде переуступки.
+						Для такой передачи продукта необходимо, чтобы
+						получатель предварительно согласился со всеми
+						условиями настоящего лицензионного соглашения.
+						Запрет на передачу во временное пользование.
+						Запрещается предоставлять продукт в прокат, в
+						аренду, во временное пользование и использовать
+						продукт для оказания третьим лицам сетевых услуг
+						на коммерческой основе.
+					</li>
+				</ol>
+			</div>
+			<input type="reset">
+			<input type="submit">
+		</form>
+	</main>
 </body>
 </html>
