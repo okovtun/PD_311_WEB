@@ -11,6 +11,9 @@ https://www.w3schools.com/cssref/css3_pr_text-shadow.php
 https://www.w3schools.com/cssref/css3_pr_box-shadow.php
 
 TODO:
+Сверстать калькулятор: 
+
+DONE:
 Прислать ссылку на свой GitHub-хостинг;
 
 DONE:
