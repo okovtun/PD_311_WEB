@@ -10,6 +10,9 @@ Shadows:
 https://www.w3schools.com/cssref/css3_pr_text-shadow.php
 https://www.w3schools.com/cssref/css3_pr_box-shadow.php
 
+CSS Units:
+https://www.w3schools.com/cssref/css_units.php
+
 TODO:
 Сверстать калькулятор: 
 	https://github.com/okovtun/PD_311_WEB/blob/master/05-Layout/img/calc.png

@@ -10,6 +10,7 @@
 
 	display:flex;
 	justify-content:space-evenly;
+	align-items:center;
 }
 
 .container-display-block
@@ -20,7 +21,8 @@
 	height: 384px;
 
 	display: block;
-	justify-content: space-evenly;
+	/*justify-content: space-evenly;*/
+	align-items:flex-end;
 }
 
 .content
@@ -29,6 +31,9 @@
 	background-color:forestgreen;
 	width:100px;
 	height:100px;
-
-
+	color:white;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:64px;
 }
