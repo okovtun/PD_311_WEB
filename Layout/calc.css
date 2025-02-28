@@ -125,22 +125,76 @@
 .display-buttons
 {
 	display: flex;
-	margin:10px;
+	/*margin: 0 10px;*/
+	justify-content:space-around;
 }
 
-	.display-buttons > div
+#square
+{
+	width: 40px;
+	height: 40px;
+	border: inset 2px;
+	margin: 10px 10px;
+}
+
+.display-buttons > button
+{
+	width: 128px;
+	color: red;
+	margin: 8px 5px;
+}
+
+#memory-buttons
+{
+	width: 64px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	border: solid 1px;
+}
+
+	#memory-buttons > button
 	{
-		width: 40px;
-		height: 40px;
-		border: inset 2px;
-		margin:5px;
+		width: 54px;
+		height: 44px;
+		margin: 5px 5px;
+		color: red;
 	}
 
-	.display-buttons > button
+.buttons
+{
+	display: flex;
+	flex-direction: row;
+	border: solid 1px;
+}
+
+#digits
+{
+	display: grid;
+	grid-template-rows: 44px 44px 44px 44px;
+	grid-template-columns: 54px 54px 54px;
+	grid-gap: 10px;
+	margin: 10px 5px;
+	padding: 5px;
+	border: solid 1px;
+}
+
+	#digits > button
 	{
-		width:128px;
-		color:red;
-		margin:0 5px;
+		width: 54px;
+		height: 44px;
+		color: blue;
+		/*margin:5px;*/
+	}
+
+button
+{
+	border:solid 1px darkblue;
+	border-radius:5px;
+}
+	button:hover
+	{
+		background-color:lightgray;
 	}
 
 .debug
