@@ -64,9 +64,10 @@
 	border-radius: 2px;
 }
 
-	.window-control-button:hover, button:disabled
+	.window-control-button:hover, button:disabled, button:disabled:hover
 	{
 		border-color: lightgrey;
+		box-shadow:none;
 	}
 
 	.window-control-button:active
@@ -191,12 +192,17 @@
 
 button
 {
-	border:solid 1px darkblue;
-	border-radius:5px;
+	border: solid 1px darkblue;
+	border-radius: 5px;
+	box-shadow: inset 0px -3px 5px 1px lightgrey;
 }
 	button:hover
 	{
 		background-color:lightgray;
+	}
+	button:active
+	{
+		box-shadow:inset 0px 0px 0px 1px grey;
 	}
 
 .debug
