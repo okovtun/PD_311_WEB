@@ -1,0 +1,15 @@
+﻿body
+{
+}
+#header
+{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+#switch
+{
+	width:32px;
+	height:32px;
+	margin:24px;
+}

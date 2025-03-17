@@ -3,11 +3,18 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+	<link rel="stylesheet" href="events.css">
     <title>Events</title>
 </head>
 <body>
-    <h1>Events</h1>
+	<div id="header">
+		<h1>Events</h1>
+		<div>
+			<img src="img/moon.png" id="switch" onclick="switch_button()">
+		</div>
+	</div>
 	<div id="number" style="width:100px;height:50px;background-color:lightblue;" onclick="increment()">
+		<h2>Init</h2>
 	</div>
 
 	<input id="text" type="text"  oninput="show_text()"/>
@@ -18,6 +25,38 @@
 		<img	id="image"	src="" alt="Выберите картинку" style="width:200px;height:200px; border:solid 1px;">
 		<input	id="file"	type="file" onchange="set_image()" value="C:\" />
 	</div>
+
+	<div id="dom" style="width:100px;height:50px;background-color:lightgray;">
+		<ul>
+			<li>Item1
+				<ol>
+					<li>Red</li>
+					<li>Green</li>
+					<li>Blue</li>
+				</ol>
+			</li>
+			<li>Item2</li>
+			<li>Item3</li>
+		</ul>
+	</div>
+	<!--<div class="dom" style="width:100px;height:50px;background-color:lightgray;">
+		<ul>
+			<li>Class1
+				<ol>
+					<li>Red</li>
+					<li>Green</li>
+					<li>Blue</li>
+				</ol>
+			</li>
+			<li>Class2</li>
+			<li>Class3</li>
+		</ul>
+	</div>-->
+
+	<!--<div id="dom" style="width:200px;height:100px;background-color:lightgreen;">
+
+	</div>-->
+
 
 	<script>
 		var i = 0;
@@ -53,6 +92,56 @@
 			let file = path_splitted[path_splitted.length - 1];
 			//alert(file);
 			image.src = file;
+		}
+	</script>
+
+	<script>
+		//console.log(document.getElementsByTagName("div"));
+		//let dom = document.getElementById("dom");
+		let dom = document.querySelector("#dom");
+		console.log(dom);
+		if (dom)
+		{
+			//dom.innerHTML = "<h2>InnerHTML</h2>";
+			//dom.append('append()')
+			//dom.prepend('prepend()')
+			dom.before('before()');
+			dom.after('after()');
+			console.log(dom.outerHTML);
+			//dom.outerHTML = "OuterHTML";
+			console.log(dom.innerText);
+			//dom.replaceWith(<h2>"Здесь был 'div'"</h2>);
+			let counter = document.getElementById("number");
+			//counter.id = "couter";
+			console.log(counter.style.cssText);
+			counter.style.cssText += "background-color:darkblue;color:white;";
+			dom.replaceWith(counter);
+		}
+
+		//append() - добавляет значение после содержимого элемента;
+		//prepend()- добавляет значение перед содержимым элемента;
+		//before() - добавляет значение перед открывающим дескриптором;
+		//after()  - добавляет значение после закрывающего дескриптора;
+		//replaceWith()
+	</script>
+
+	<script>
+		function switch_button()
+		{
+			let switch_btn = document.getElementById("switch");
+			let image = switch_btn.src.split('/').at(-1);
+			//if(switch_btn.img==='sun.')
+			console.log(switch_btn.src.split('/').at(-1));
+			//if (switch_btn.src.split('/').at(-1) === 'sun.png') switch_btn.src = 'img/moon.png';
+			//else switch_btn.src = 'img/sun.png';
+			//switch_btn.src = switch_btn.src.split('/').at(-1) == 'sun.png' ? 'img/moon.png' : 'img/sun.png';
+
+			switch_btn.src = `img/${image == 'sun.png' ? 'moon.png' : 'sun.png'}`;
+
+			document.body.style.backgroundColor = image === 'moon.png' ? '#323232' : 'white';
+			document.body.style.color = image === 'sun.png' ? '#323232' : 'white';
+			document.body.style.transition = `background-color 3s, color 3s`;
+			console.log(switch_btn.src);
 		}
 	</script>
 </body>
