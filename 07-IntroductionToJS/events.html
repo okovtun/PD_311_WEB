@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="events.css">
     <title>Events</title>
 </head>
-<body>
+<body onload="tick_timer()">
 	<div id="header">
 		<h1>Events</h1>
 		<div>
@@ -21,12 +21,12 @@
 	<input id="show" type="button" value="Show">
 	<div id="display_text"></div>
 
-	<div style="display:grid; grid-gap:5px;">
+	<!--<div style="display:grid; grid-gap:5px;">
 		<img	id="image"	src="" alt="Выберите картинку" style="width:200px;height:200px; border:solid 1px;">
 		<input	id="file"	type="file" onchange="set_image()" value="C:\" />
-	</div>
+	</div>-->
 
-	<div id="dom" style="width:100px;height:50px;background-color:lightgray;">
+	<!--<div id="dom" style="width:100px;height:50px;background-color:lightgray;">
 		<ul>
 			<li>Item1
 				<ol>
@@ -38,7 +38,8 @@
 			<li>Item2</li>
 			<li>Item3</li>
 		</ul>
-	</div>
+	</div>-->
+
 	<!--<div class="dom" style="width:100px;height:50px;background-color:lightgray;">
 		<ul>
 			<li>Class1
@@ -57,92 +58,26 @@
 
 	</div>-->
 
+	<hr>
+	<img src="img/padStart.png">
+	<h2>Date & Time</h2>
+	<hr>
+	<div id="date"></div>
+	<div id="time"></div>
+	<div id="weekday"></div>
+	<div id="show-date-container" style="width:100%;text-align:center;">
+		<input type="checkbox" id="show-date"><label for="show-date">Показать дату</label>
+	</div>
+	<div id="show-weekday-container" style="width:100%;text-align:center;">
+		<input type="checkbox" id="show-weekday"><label for="show-weekday">Показать день недели</label>
+	</div>
 
-	<script>
-		var i = 0;
-		function increment()
-		{
-			i++;
-			//document.writeln(i);
-			let number = document.getElementById("number");
-			number.innerHTML = `<h2>${i}</h2>`;
-		}
-		function show_text()
-		{
-			let text = document.getElementById("text");
-			let display_text = document.getElementById("display_text");
-			//<debugger>
-			display_text.innerHTML = text.value;
-			//alert();
-		}
-		function set_init_path()
-		{
-			let file = document.getElementById("file");
-			file.value = window.location.pathname;
-			alert("set_init_path()");
-		}
-		function set_image()
-		{
-			let image = document.getElementById("image");
-			let path = document.getElementById("file");
-			//let path = window.location.pathname;
-			//this.value = path;
-			let path_splitted = path.value.split('\\');
-			//console.log(path_splitted);
-			let file = path_splitted[path_splitted.length - 1];
-			//alert(file);
-			image.src = file;
-		}
-	</script>
+	<hr>
+	<div id="date-and-time"></div>
 
-	<script>
-		//console.log(document.getElementsByTagName("div"));
-		//let dom = document.getElementById("dom");
-		let dom = document.querySelector("#dom");
-		console.log(dom);
-		if (dom)
-		{
-			//dom.innerHTML = "<h2>InnerHTML</h2>";
-			//dom.append('append()')
-			//dom.prepend('prepend()')
-			dom.before('before()');
-			dom.after('after()');
-			console.log(dom.outerHTML);
-			//dom.outerHTML = "OuterHTML";
-			console.log(dom.innerText);
-			//dom.replaceWith(<h2>"Здесь был 'div'"</h2>);
-			let counter = document.getElementById("number");
-			//counter.id = "couter";
-			console.log(counter.style.cssText);
-			counter.style.cssText += "background-color:darkblue;color:white;";
-			dom.replaceWith(counter);
-		}
-
-		//append() - добавляет значение после содержимого элемента;
-		//prepend()- добавляет значение перед содержимым элемента;
-		//before() - добавляет значение перед открывающим дескриптором;
-		//after()  - добавляет значение после закрывающего дескриптора;
-		//replaceWith()
-	</script>
-
-	<script>
-		function switch_button()
-		{
-			let switch_btn = document.getElementById("switch");
-			let image = switch_btn.src.split('/').at(-1);
-			//if(switch_btn.img==='sun.')
-			console.log(switch_btn.src.split('/').at(-1));
-			//if (switch_btn.src.split('/').at(-1) === 'sun.png') switch_btn.src = 'img/moon.png';
-			//else switch_btn.src = 'img/sun.png';
-			//switch_btn.src = switch_btn.src.split('/').at(-1) == 'sun.png' ? 'img/moon.png' : 'img/sun.png';
-
-			switch_btn.src = `img/${image == 'sun.png' ? 'moon.png' : 'sun.png'}`;
-
-			document.body.style.backgroundColor = image === 'moon.png' ? '#323232' : 'white';
-			document.body.style.color = image === 'sun.png' ? '#323232' : 'white';
-			document.body.style.transition = `background-color 3s, color 3s`;
-			console.log(switch_btn.src);
-		}
-	</script>
+	<script type="text/javascript" src="events1.js"></script>
+	<script type="text/javascript" src="events2.js"></script>
+	<script type="text/javascript" src="switch_button.js"></script>
+	<script type="text/javascript" src="date_time.js"></script>
 </body>
 </html>
