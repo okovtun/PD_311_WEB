@@ -2,9 +2,9 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+	<meta charset="utf-8" />
 	<link rel="stylesheet" href="events.css">
-    <title>Events</title>
+	<title>Events</title>
 </head>
 <body onload="tick_timer()">
 	<div id="header">
@@ -17,7 +17,7 @@
 		<h2>Init</h2>
 	</div>
 
-	<input id="text" type="text"  oninput="show_text()"/>
+	<input id="text" type="text" oninput="show_text()" />
 	<input id="show" type="button" value="Show">
 	<div id="display_text"></div>
 
@@ -25,7 +25,6 @@
 		<img	id="image"	src="" alt="Выберите картинку" style="width:200px;height:200px; border:solid 1px;">
 		<input	id="file"	type="file" onchange="set_image()" value="C:\" />
 	</div>-->
-
 	<!--<div id="dom" style="width:100px;height:50px;background-color:lightgray;">
 		<ul>
 			<li>Item1
@@ -39,7 +38,6 @@
 			<li>Item3</li>
 		</ul>
 	</div>-->
-
 	<!--<div class="dom" style="width:100px;height:50px;background-color:lightgray;">
 		<ul>
 			<li>Class1
@@ -53,7 +51,6 @@
 			<li>Class3</li>
 		</ul>
 	</div>-->
-
 	<!--<div id="dom" style="width:200px;height:100px;background-color:lightgreen;">
 
 	</div>-->
@@ -74,6 +71,19 @@
 
 	<hr>
 	<div id="date-and-time"></div>
+	<hr>
+	<div id="user-data">
+		<input type="date" id="user-date" value="2025-03-25">
+		<input type="time" id="user-time" value="16:00">
+		<input type="datetime-local" id="user-datetime-local" value="2025-03-19 16:30">
+		<input type="button" id="start-timer" value="Start" onclick="start_timer()">
+		<br>
+		<div id="user-values-date"></div>
+		<div id="user-values-time"></div>
+		<div id="user-datetime-local-values"></div>
+		<div id="user-datetime-local-timestamp"></div>
+		<div id="difference"></div>
+	</div>
 
 	<script type="text/javascript" src="events1.js"></script>
 	<script type="text/javascript" src="events2.js"></script>
