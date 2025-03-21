@@ -67,7 +67,7 @@ function start_timer()
 	else
 	{
 		start_timer_button.value = "Start";
-		user_date_input.disabled = user_time_input.disabled = false;
+		user_date_input.disabled = user_time_input.disabled = user_datetime_local.disabled = false;
 	}
 }
 
@@ -84,8 +84,32 @@ function countdown_timer()
 	const SECONDS_IN_DAY = 86400;
 	const SECONDS_IN_WEEK = 86400 * 7;
 	const DAYS_IN_MONTH = 365 / 12;
+	const SECONDS_IN_MONTH = DAYS_IN_MONTH * SECONDS_IN_DAY;
 	const SECONDS_IN_YEAR = SECONDS_IN_DAY * 365 + SECONDS_IN_HOUR * 6;
 
+	let years = Math.trunc(timestamp / SECONDS_IN_YEAR);
+	timestamp = Math.trunc(timestamp % SECONDS_IN_YEAR);
+
+	let monthes = Math.trunc(timestamp / SECONDS_IN_MONTH);
+	timestamp = Math.trunc(timestamp % SECONDS_IN_MONTH);
+
+	let weeks = Math.trunc(timestamp / SECONDS_IN_WEEK);
+	timestamp = Math.trunc(timestamp % SECONDS_IN_WEEK);
+
+	let days = Math.trunc(timestamp / SECONDS_IN_DAY);
+	timestamp = Math.trunc(timestamp % SECONDS_IN_DAY);
+
+	let hours = Math.trunc(timestamp / SECONDS_IN_HOUR);
+	timestamp = Math.trunc(timestamp % SECONDS_IN_HOUR);
+
+	let minutes = Math.trunc(timestamp / SECONDS_IN_MINUTE);
+	timestamp = Math.trunc(timestamp % SECONDS_IN_MINUTE);
+
+	let seconds = Math.trunc(timestamp);
+
+
+	document.getElementById("time-units").innerHTML =
+		`${years} years, ${monthes} monthes, ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
 
 	setTimeout(countdown_timer, 1000);
 }
