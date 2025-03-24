@@ -81,6 +81,9 @@ function countdown_timer()
 	const SECONDS_IN_MONTH = DAYS_IN_MONTH * SECONDS_IN_DAY;
 	const SECONDS_IN_YEAR = SECONDS_IN_DAY * 365 + SECONDS_IN_HOUR * 6;
 
+	let time_units = new Array(0, 0, 0, 0, 0, 0, 0);
+	const time_unit_names = new Array("years", "months", "weeks", "days", "hours", "minutes", "seconds");
+
 	let user_datetime = +new Date(document.getElementById("user-datetime-local").value);
 	let current_time = +new Date();
 	let timezone_offset = new Date().getTimezoneOffset() / 60;
@@ -100,19 +103,20 @@ function countdown_timer()
 	////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////
 
-	let years = Math.trunc(timestamp / SECONDS_IN_YEAR);
+	let years = time_units[0] = Math.trunc(timestamp / SECONDS_IN_YEAR);
 	let display = document.getElementById("display");
 	if (years != 0)
 	{
+		console.log(`years:${years}-${time_units[0]}`);
 		timestamp = Math.trunc(timestamp % (years * SECONDS_IN_YEAR));
 		let years_unit = document.getElementById("years-unit");
-		if (years == null)
+		if (years_unit == null)
 			display.prepend(createTimeBlock("years", years));
 	}
 	else removeTimeBlock("years");
 
-	
-	let months = Math.trunc(timestamp / SECONDS_IN_MONTH);
+
+	let months = time_units[1] = Math.trunc(timestamp / SECONDS_IN_MONTH);
 	if (months > 0)
 	{
 		timestamp = Math.trunc(timestamp % (months * SECONDS_IN_MONTH));
@@ -124,34 +128,56 @@ function countdown_timer()
 		}
 	}
 
-	let weeks = Math.trunc(timestamp / SECONDS_IN_WEEK);
+	let weeks = time_units[2] = Math.trunc(timestamp / SECONDS_IN_WEEK);
 	if (weeks > 0)
 	{
 		timestamp = Math.trunc(timestamp % (weeks * SECONDS_IN_WEEK));
 	}
 
-	let days = Math.trunc(timestamp / SECONDS_IN_DAY);
+	let days = time_units[3] = Math.trunc(timestamp / SECONDS_IN_DAY);
 	if (days > 0)
 	{
 		timestamp = Math.trunc(timestamp % (days * SECONDS_IN_DAY));
 	}
 
-	let hours = Math.trunc(time_of_day / SECONDS_IN_HOUR);
+	let hours = time_units[4] = Math.trunc(time_of_day / SECONDS_IN_HOUR);
 	if (hours > 0)
 	{
 		time_of_day = Math.trunc(time_of_day % (hours * SECONDS_IN_HOUR));
 	}
 
-	let minutes = Math.trunc(time_of_day / SECONDS_IN_MINUTE);
+	let minutes = time_units[5] = Math.trunc(time_of_day / SECONDS_IN_MINUTE);
 	if (minutes > 0)
 	{
 		time_of_day = Math.trunc(time_of_day % (minutes * SECONDS_IN_MINUTE));
 	}
 
-	let seconds = Math.trunc(time_of_day);
+	let seconds = time_units[6] = Math.trunc(time_of_day);
 
 	let debug_display = document.getElementById("display");
 	console.log(debug_display.children.length);
+
+
+	//let display = document.getElementById("display");
+	for (let i = 1; i < time_units.length - 2; i++)
+	{
+		if (document.getElementById(`${time_unit_names[i]}-unit`) == null)
+		{
+			if (time_units[i - 1] === 0)
+			{
+				display.prepend(createTimeBlock(time_unit_names[i], time_units[i]));
+			}
+			else
+			{
+				let unit = document.getElementById(`${time_unit_names[i - 1]}-unit`);
+				unit.parentElement.after(createTimeBlock(time_unit_names[i], time_units[i]));
+			}
+		}
+		else
+		{
+			document.getElementById(`${time_unit_names[i]}-unit`).innerHTML = time_units[i];
+		}
+	}
 
 	document.getElementById("hours-unit").innerHTML = hours;
 	document.getElementById("minutes-unit").innerHTML = minutes;
