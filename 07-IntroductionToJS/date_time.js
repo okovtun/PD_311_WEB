@@ -4,7 +4,7 @@ let current_time = new Date();
 let date_and_time = document.getElementById("date-and-time");
 date_and_time.innerHTML = `getDate():\t${current_time.getDate()};<br>`;
 date_and_time.append(`getTime():\t${current_time.getTime()};`);
-date_and_time.append(`getDay():\t${(new Date(2025, 03 - 1, 16)).toLocaleString("default", {weekday:"long"})};`);
+date_and_time.append(`getDay():\t${(new Date(2025, 03 - 1, 16)).toLocaleString("default", { weekday: "long" })};`);
 
 //const WEEK = [""]
 
@@ -25,7 +25,7 @@ function tick_timer()
 	}
 
 	document.getElementById("weekday").innerHTML =
-		document.getElementById("show-weekday").checked ? current_time.toLocaleString("default", { weekday: "long" }) : ""; 
+		document.getElementById("show-weekday").checked ? current_time.toLocaleString("default", { weekday: "long" }) : "";
 
 	let hh = checkNumber(current_time.getHours());
 	let mm = checkNumber(current_time.getMinutes());
@@ -56,7 +56,7 @@ function start_timer()
 	//document.getElementById("user-values-time").innerHTML = user_time;
 	document.getElementById("user-datetime-local-values").innerHTML = user_datetime_local.value;
 	//document.getElementById("user-datetime-local-timestamp").innerHTML = new Date(user_datetime_local.value);
-	document.getElementById("user-datetime-local-timestamp").innerHTML = Math.trunc(user_datetime_local.valueAsNumber/1000);
+	document.getElementById("user-datetime-local-timestamp").innerHTML = Math.trunc(user_datetime_local.valueAsNumber / 1000);
 
 	if (start_timer_button.value === "Start" && user_datetime_local !== "" /*user_date_input.value !== "" && user_time_input.value !== ""*/)
 	{
@@ -101,48 +101,67 @@ function countdown_timer()
 	////////////////////////////////////////////////////////////////
 
 	let years = Math.trunc(timestamp / SECONDS_IN_YEAR);
-	if (years > 0)
+	let display = document.getElementById("display");
+	if (years != 0)
 	{
-		timestamp = Math.trunc(timestamp % (years*SECONDS_IN_YEAR));
+		timestamp = Math.trunc(timestamp % (years * SECONDS_IN_YEAR));
+		let years_unit = document.getElementById("years-unit");
+		if (years == null)
+			display.prepend(createTimeBlock("years", years));
 	}
+	else removeTimeBlock("years");
 
-	let monthes = Math.trunc(timestamp / SECONDS_IN_MONTH);
-	if (monthes > 0)
+	
+	let months = Math.trunc(timestamp / SECONDS_IN_MONTH);
+	if (months > 0)
 	{
-		timestamp = Math.trunc(timestamp % (monthes*SECONDS_IN_MONTH));
+		timestamp = Math.trunc(timestamp % (months * SECONDS_IN_MONTH));
+		let months_unit = document.getElementById("months-unit");
+		if (months_unit == null)
+		{
+			let years_unit = document.getElementById("years-unit");
+			//if(years_unit == null)display.app
+		}
 	}
 
 	let weeks = Math.trunc(timestamp / SECONDS_IN_WEEK);
-	if(weeks>0)
+	if (weeks > 0)
 	{
-		timestamp = Math.trunc(timestamp % (weeks*SECONDS_IN_WEEK));
+		timestamp = Math.trunc(timestamp % (weeks * SECONDS_IN_WEEK));
 	}
 
 	let days = Math.trunc(timestamp / SECONDS_IN_DAY);
 	if (days > 0)
 	{
-		timestamp = Math.trunc(timestamp % (days*SECONDS_IN_DAY));
+		timestamp = Math.trunc(timestamp % (days * SECONDS_IN_DAY));
 	}
 
 	let hours = Math.trunc(time_of_day / SECONDS_IN_HOUR);
 	if (hours > 0)
 	{
-		time_of_day = Math.trunc(time_of_day % (hours*SECONDS_IN_HOUR));
+		time_of_day = Math.trunc(time_of_day % (hours * SECONDS_IN_HOUR));
 	}
 
 	let minutes = Math.trunc(time_of_day / SECONDS_IN_MINUTE);
 	if (minutes > 0)
 	{
-		time_of_day = Math.trunc(time_of_day % (minutes*SECONDS_IN_MINUTE));
+		time_of_day = Math.trunc(time_of_day % (minutes * SECONDS_IN_MINUTE));
 	}
 
 	let seconds = Math.trunc(time_of_day);
 
+	let debug_display = document.getElementById("display");
+	console.log(debug_display.children.length);
+
+	document.getElementById("hours-unit").innerHTML = hours;
+	document.getElementById("minutes-unit").innerHTML = minutes;
+	document.getElementById("seconds-unit").innerHTML = seconds;
 
 	document.getElementById("time-units").innerHTML =
-		`${years} years, ${monthes} monthes, ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+		`${years} years, ${months} monthes, ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
 
-	setTimeout(countdown_timer, 1000);
+	if (document.getElementById("start-timer").value === 'Stop')
+		setTimeout(countdown_timer, 1000);
 }
 
 //alert(current_time);
@@ -158,3 +177,34 @@ Date(year,month,day,hours,minutes);
 Date(year,month,day,hours,minutes,seconds);
 Date(year,month,day,hours,minutes,seconds,milliseconds);
  */
+
+function createTimeBlock(name, value)
+{
+	let time_block = document.createElement("div");
+	time_block.className = "time-block";
+
+	let unit = document.createElement("div");
+	unit.id = `${name}-unit`;
+	unit.className = "time-unit";
+	unit.innerHTML = checkNumber(value);
+
+	let marker = document.createElement("div");
+	marker.id = `${name}-marker`;
+	marker.className = "time-marker";
+	marker.innerHTML = name;
+
+	time_block.append(unit);
+	time_block.append(marker);
+
+	return time_block;
+}
+function removeTimeBlock(name)
+{
+	let unit = document.getElementById(`${name}-unit`);
+	if (unit != null)
+	{
+		let block = unit.parentElement;
+		let display = block.parentElement;
+		display.removeChild(block);
+	}
+}
