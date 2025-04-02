@@ -1,0 +1,24 @@
+[
+	null,
+	{
+		"type": "Student",
+		"last_name": "Pinkman",
+		"first_name": "Jessie",
+		"age": 22,
+		"speciality": "Chemistry",
+		"group": "WW_220",
+		"rating": 90,
+		"attendance": 99
+	},
+	{
+		"type": "Teacher",
+		"last_name": "White",
+		"first_name": "Walter",
+		"age": 50,
+		"speciality": "Chemistry",
+		"experience": 25
+	}
+]
+
+
+JSON - JavaScript Object Notation

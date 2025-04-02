@@ -88,3 +88,26 @@ for (let i in group)
 {
 	document.write(group[i] + '<hr>');
 }
+
+let student =
+`{
+	"type": "Student",
+	"last_name": "Pinkman",
+	"first_name": "Jessie",
+	"age": 22,
+	"speciality": "Chemistry",
+	"group": "WW_220",
+	"rating": 90,
+	"attendance": 99
+}`;
+
+console.log(student);
+let student_p = JSON.parse(student);
+console.log(student_p);
+
+console.log("------------------------------");
+
+console.log(group[2]);
+
+let student_s = JSON.stringify(student_p);
+console.log(student_s);
